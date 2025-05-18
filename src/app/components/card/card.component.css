@@ -1,0 +1,45 @@
+.card-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -20px; 
+  z-index: 10;
+}
+
+.card-preview {
+  width: 340px;
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.card-bg {
+  background-image: url("/assets/card-bg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+}
+.card-content {
+  z-index: 2;
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  top: 100px;
+  left: 25px;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+}
+.card-expirydate {
+  position: relative;
+  top: -15px;
+  left: 100px;
+}
+.card-name-titular{
+   position: relative;
+   top: -15px;
+   left: 0;
+}

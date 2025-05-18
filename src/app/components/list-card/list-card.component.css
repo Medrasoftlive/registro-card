@@ -1,0 +1,30 @@
+.credit-card {
+  background: linear-gradient(to right, #2b2e4a, #1f2235);
+  color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 140px;
+}
+
+.card-number {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.card-holder-label,
+.card-expiry-label {
+  font-size: 0.7rem;
+  color: #bbb;
+  margin-top: 0.5rem;
+}
+
+.card-holder,
+.card-expiry {
+  font-size: 1rem;
+  font-weight: bold;
+}

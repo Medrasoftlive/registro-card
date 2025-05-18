@@ -1,0 +1,13 @@
+ 
+ 
+<div class="mt-5 w-100" style="max-width: 600px;">
+  <h5 class="mb-3">Tarjetas Agregadas</h5>
+
+  <div *ngFor="let t of tarjetas" class="credit-card mb-3 shadow-sm">
+    <div class="card-number">{{ enmascararNumero(t.cardNumber) }}</div>
+    <div class="card-holder-label">TITULAR</div>
+    <div class="card-holder">{{ t.cardHolder }}</div>
+    <div class="card-expiry-label">VENCE</div>
+    <div class="card-expiry">{{ t.expiryDate }}</div>
+  </div>
+</div>

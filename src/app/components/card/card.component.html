@@ -1,0 +1,60 @@
+<div class="d-flex flex-column align-items-center justify-content-center min-vh-100 px-3">
+   <!-- Tarjeta flotante -->
+  <div class="card-wrapper">
+    <div class="card-preview">
+      <div class="card-bg"></div>
+      <div class="card-content text-white">
+        <div class="fs-5 fw-semibold">{{ formatCardNumber() }}</div>
+        <div class="card-expirydate mt-3">Venc: {{ f.expiryDate.value || 'MM/YY' }}</div>
+        <div class="card-name-titular mt-1 text-uppercase fw-bold small">{{ f.cardHolder.value || 'NOMBRE TITULAR' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formulario -->
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="card p-4 shadow w-100 pt-5" style="max-width: 600px; z-index: 1; position: relative; padding-top: 140px;">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Número de Tarjeta</label>
+        <input type="text" class="form-control" formControlName="cardNumber" />
+        <div *ngIf="f.cardNumber.touched && f.cardNumber.invalid" class="text-danger small">
+          Solo números de 13 a 16 dígitos.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Fecha Vencimiento</label>
+        <input type="text" class="form-control" placeholder="MM/YY" formControlName="expiryDate" />
+        <div *ngIf="f.expiryDate.touched && f.expiryDate.errors" class="text-danger small">
+          <div *ngIf="f.expiryDate.errors['invalidFormat']">Formato inválido.</div>
+          <div *ngIf="f.expiryDate.errors['invalidYear']">Año fuera de rango.</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Nombre Titular</label>
+        <input type="text" class="form-control" formControlName="cardHolder" />
+        <div *ngIf="f.cardHolder.touched && f.cardHolder.invalid" class="text-danger small">
+          Solo letras, máx. 20 caracteres.
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">CVV</label>
+        <input type="text" class="form-control" formControlName="cvv" />
+        <div *ngIf="f.cvv.touched && f.cvv.invalid" class="text-danger small">
+          Debe contener 3 o 4 dígitos.
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-start gap-2 mt-3">
+        <button type="submit" class="btn btn-primary" [disabled]="form.invalid" >Agregar Tarjeta</button>
+        <button type="reset" class="btn btn-light" (click)="form.reset()">Cancelar</button>
+      </div>
+    </div>
+  </form>
+  
+</div>
+
+
+
